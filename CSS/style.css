@@ -1,9 +1,6 @@
 :root {
-    --bg-base-color: #130f1a;
-    
-    --bg-panel-color: #1c1626;
-    
-    --bg-surface-color: #261e33;
+    --bg-base-color: #161b22;
+    --bg-panel-color: #0d1117;
     
     --text-color: #f8fafc;
     --text-color-black:#000000;
@@ -31,6 +28,7 @@ header{
 nav{
     display: flex;
     justify-content: center;
+    gap: 20px;
     padding: 0px 30px;
 }
 
@@ -39,7 +37,8 @@ nav>a{
     padding: 10px;
 
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-color); 
+
 
     transition-property: background-color;
     transition-duration: 250ms;
@@ -50,16 +49,33 @@ nav>a:hover{
 }
 
 .current-page{
-    background-color: var(--bg-base-color);
+    border-bottom: 1px solid var(--text-color);
 }
 
 main{
     grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 20px;
+}
+
+section{
+    flex: 1 1;
+    max-width: 1000px;
+    height: auto;
+    padding: 20px;
+    background-color: var(--bg-surface-color);
+    border-radius: 10px;
+}
+
+h1{
+    text-align: center;
 }
 
 footer{
     grid-row: 3/4;
-    padding: 0px 30px;
-
+    padding: 10px 30px;
+    text-align: center;
     background-color: var(--bg-panel-color);
 }
