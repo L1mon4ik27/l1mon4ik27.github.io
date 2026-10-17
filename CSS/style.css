@@ -1,0 +1,47 @@
+:root {
+    --bg-base-color: #130f1a;
+    
+    --bg-panel-color: #1c1626;
+    
+    --bg-surface-color: #261e33;
+    
+    --text-color: #f8fafc;
+}
+
+body{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    margin: 0px;
+    height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+
+    background-color: var(--bg-base-color);
+}
+
+header{
+    grid-row: 1/2;
+    background-color: var(--bg-panel-color);
+}
+
+nav{
+    padding: 0px 30px;
+}
+
+nav>a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+main{
+    grid-row: 2/3;
+}
+
+footer{
+    grid-row: 3/4;
+    padding: 0px 30px;
+
+    background-color: var(--bg-panel-color);
+}
