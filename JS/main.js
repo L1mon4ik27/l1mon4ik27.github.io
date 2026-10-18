@@ -1,33 +1,37 @@
 const htmlElement = document.documentElement;
 const themeToggle = document.getElementById("theme-toggle");
-const logo = document.getElementById("logo"); 
+const logo = document.getElementById("logo");
 
-if(localStorage.getItem("theme")!==null){
-    htmlElement.setAttribute("data-theme",localStorage.getItem("theme"));
-}
-else{
-    const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    
-    const systemTheme = isSystemDark ? "dark" : "light";
-    htmlElement.setAttribute("data-theme", systemTheme);
-    localStorage.setItem("theme",systemTheme);
-}
+function applyTheme(theme) {
+    htmlElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
 
-
-themeToggle.addEventListener("click",changeTheme);
-
-function changeTheme(){
-    let currentTheme = htmlElement.getAttribute("data-theme");
-    
-    if(currentTheme == "dark"){
-        htmlElement.setAttribute("data-theme","light");
-        logo.setAttribute("src","assets/logo-light.png");
+    if (theme === "dark") {
+        logo.setAttribute("src", "assets/logo-dark.png");
+        themeToggle.innerHTML = "☀"; 
+    } else {
+        logo.setAttribute("src", "assets/logo-light.png");
         themeToggle.innerHTML = "⏾";
     }
-    else if (currentTheme == "light"){
-        htmlElement.setAttribute("data-theme","dark");
-        logo.setAttribute("src","assets/logo-dark.png");
-        themeToggle.innerHTML = "☀";
-    }
-    localStorage.setItem("theme",htmlElement.getAttribute("data-theme"));
 }
+
+function changeTheme() {
+    const currentTheme = htmlElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    
+    applyTheme(newTheme);
+}
+
+function initTheme() {
+    let theme = localStorage.getItem("theme");
+    
+    if (!theme) {
+        const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        theme = isSystemDark ? "dark" : "light";
+    }
+    
+    applyTheme(theme);
+}
+
+initTheme();
+themeToggle.addEventListener("click", changeTheme);
