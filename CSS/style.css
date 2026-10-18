@@ -1,14 +1,18 @@
-:root {
+[data-theme="dark"]{
     --bg-base-color: #161b22;
     --bg-panel-color: #0d1117;
-    
-    --text-color: #f8fafc;
-    --text-color-black:#000000;
+    --text-color: #f8fafc; 
+}
+
+[data-theme="light"]{
+    --bg-base-color: #161b22;
+    --bg-panel-color: #0d1117;
+    --text-color: #f8fafc; 
 }
 
 body{
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
     margin: 0px;
     height: 100vh;
     height: 100dvh;
@@ -22,14 +26,26 @@ body{
 
 header{
     grid-row: 1/2;
+    display: flex;    
+    gap: 10px;
+    padding: 10px 30px;
     background-color: var(--bg-panel-color);
 }
 
+header>img{
+    display: inline-block;
+    width: auto;
+    height: 50px;
+    grid-column: 1/2;
+}
+
 nav{
+    grid-row: 2/3;    
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 0px 30px;
+    background-color: var(--bg-panel-color);
 }
 
 nav>a{
@@ -53,7 +69,7 @@ nav>a:hover{
 }
 
 main{
-    grid-row: 2/3;
+    grid-row: 3/4;
     display: flex;
     justify-content: center;
     align-items: start;
@@ -74,7 +90,7 @@ h1{
 }
 
 footer{
-    grid-row: 3/4;
+    grid-row: 4/5;
     padding: 10px 30px;
     text-align: center;
     background-color: var(--bg-panel-color);
