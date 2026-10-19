@@ -11,7 +11,7 @@ function applyTheme(theme) {
         themeToggle.innerHTML = "☀"; 
     } else {
         logo.setAttribute("src", "assets/logo-light.png");
-        themeToggle.innerHTML = "⏾";
+        themeToggle.innerHTML = "☽";
     }
 }
 
